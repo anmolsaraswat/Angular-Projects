@@ -1,0 +1,46 @@
+/**
+ * Survey Surfer (https://www.ennapd.com/surveysurferadminpanel)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source tree.
+ */
+ 
+page-front {
+    .surveyapp {
+        width: 100px;
+        margin-top: 20%;
+    }
+ 
+    .heading {
+        font-size: 30px;
+        font-weight: 400;
+    }
+ 
+    .signupbut{
+        border-radius: 64px;
+        padding: 0 2.6rem;
+        width: 22rem;
+        margin-top: 80px;
+        height: 43px;
+        background: linear-gradient(to right, rgb(46, 170, 255) , rgb(54, 198, 240));
+        // background:url(../../assets/imgs/bg.png);
+    }
+    .admin{ 
+        font-size: 20px;
+        font-weight: 200;
+    }
+    .signinbut {
+        border-radius: 64px;
+        padding: 0 2.6rem;
+        width: 22rem;
+        margin-top: 7px;
+        height: 43px;      
+    }
+ 
+    .sub-heading {
+        color: lightgrey;
+        font-weight: lighter;
+    }
+}

@@ -1,0 +1,26 @@
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Survey Details</ion-title>
+    </ion-navbar>
+   </ion-header>
+   <ion-content>  
+   <div text-left>
+    <div>
+      <img src={{surveyD.payload.val().image_url}}>
+    </div>
+            <h2 class="heading" text-center>{{surveyD.payload.val().title}}</h2>
+            <h4 class="description">{{surveyD.payload.val().description}}</h4>
+     </div>
+
+   </ion-content>
+ 
+
+   <ion-footer align="center" no-border>
+      <div *ngIf = "surveyD.payload.val().status == 'closed'" style="background: rgb(248, 248, 248); color:red;" center> This survey is closed <br>
+        <button ion-button outline style="color: rgb(46, 170, 255); border-color: rgb(46, 170, 255);" (click) = "opensurvey()"> Open this Survey </button>
+      </div>
+      <div *ngIf = "surveyD.payload.val().status == 'open'" center style="background: rgb(248, 248, 248);"> 
+        <button ion-button outline style="color: red" (click) = "closesurvey()"> Close this Survey </button>
+      </div>
+          <button ion-button full color="secondary" class="submitButton" (click)="openPagereport()">Full Report</button>
+   </ion-footer>

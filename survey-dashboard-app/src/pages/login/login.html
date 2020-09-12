@@ -1,0 +1,69 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content">
+  <div>
+
+    <div class="image">
+      <img class="app-logo" src="assets/imgs/surveyapp3.png" width="40%" height="40%">
+    </div>
+<div style="position: relative">
+    <div class="login-box">
+        <form (ngSubmit)="signin()" [formGroup]="loginForm">
+      <ion-card class="card">
+        <ion-card-content style="padding: 0px">
+          
+          <ion-list>
+            <div>
+              <ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched']) }">
+              <ion-label floating primary>Email</ion-label>
+              <ion-input type="email" #email formControlName="email" required></ion-input>
+              <ion-icon name="ios-mail-outline" style="margin-top: 35px; z-index: 100;" item-right></ion-icon>
+           
+            </ion-item>
+          </div>
+          <div ngxErrors="email" #emailErrors="ngxErrors">
+              <div style="padding-left: 15px; color: red" [ngxError]="['email', 'required']" [when]="['touched']">Please enter a valid email address</div>
+            </div>
+
+
+            <div>
+              <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
+              <ion-label floating primary>Password</ion-label>
+              <ion-input type="password" #password formControlName="password" required></ion-input>
+              <ion-icon name="ios-key-outline" style="margin-top: 35px; z-index: 100;" item-right></ion-icon>
+            </ion-item>
+          </div>
+        
+          <div ngxErrors="password" #passwordErrors="ngxErrors">
+            <div style="padding-left: 15px; color: red" [ngxError]="['minlength', 'required']" [when]="['touched']">Please enter at least 6 characters</div>
+          </div>
+
+
+        </ion-list>
+        </ion-card-content>
+      </ion-card>
+
+      <div style="text-align:center;">
+        <button class="signinButton" ion-button type="submit" round>Sign In</button>
+      </div>
+    </form>
+
+      <ion-row style="margin-top: 20px;">
+        <ion-col class="signup-col">
+          <button ion-button class="register-btn" block clear (click)="signup()">Create New Account</button>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Profile</ion-title>
+    <ion-buttons end>
+        <button ion-button (click) = "saveprofile()"> SAVE </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-row padding>
+        <ion-col col-3>
+          <div>
+            <img class="profilePic" src="{{databasepro.profilePicUrl}}">
+            <ion-fab class="fabButton">
+            <button class="changeProfilePic"  (click) = "saveimage()" ion-fab small><ion-icon name="md-create"></ion-icon></button>
+          </ion-fab>
+        </div>
+
+        
+        </ion-col>
+        <ion-col col-9>
+            <ion-item>
+                <ion-label color="primary" floating >Name</ion-label>
+                <ion-input [(ngModel)]="userName" #name></ion-input>
+              </ion-item>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row class="personalInfo">
+        <h5 padding>Personal Information</h5>
+      </ion-row>
+      <br>
+      <ion-list class="list">
+          <!-- Input Phone Number -->
+          <ion-item class="item">
+            <ion-label floating color="primary">Phone number</ion-label>
+            <ion-input type="tel" maxlength="10" minlength="10" clearInput [(ngModel)]="userPhone" #phone></ion-input>
+            <ion-icon name="ios-call-outline" style="margin-top: 35px; z-index: 100;" item-right></ion-icon>
+          </ion-item>
+  
+          <!-- Input Email ID -->
+          <ion-item class="item">
+            <ion-label floating color="primary">Email</ion-label>
+            <ion-input type="email" clearInput [(ngModel)]="userEmail" disabled></ion-input>
+            <ion-icon name="ios-mail-outline" style="margin-top: 35px; z-index: 100;" item-right></ion-icon>
+          </ion-item>
+
+          <ion-item class="item">
+              <ion-label floating color="primary">Address</ion-label>
+              <ion-input type="text" clearInput [(ngModel)]="useraddress" #address></ion-input>
+              <ion-icon name="ios-home-outline" style="margin-top: 35px; z-index: 100;" item-right></ion-icon>
+          </ion-item>
+    
+        </ion-list>
+</ion-content>

@@ -1,0 +1,21 @@
+  <ion-nav #content [root]="rootPage"></ion-nav>
+<ion-header>
+  <ion-navbar>
+    <!-- Button for side menu -->
+      <button ion-button menuToggle><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
+    <ion-title>Survey</ion-title>     
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+        <ion-item class = "a" *ngFor="let surveyiterator of surveyList; let surveyindex = index;" (click)="openPagedetails(surveyindex)">
+          <ion-thumbnail item-start>
+            <img [src]="surveyiterator.payload.val().image_url" class="imageborder">
+          </ion-thumbnail>
+          <h2>{{surveyiterator.payload.val().title}}</h2>
+          <p>{{surveyiterator.payload.val().category}}</p>
+          <button ion-button clear item-end>View</button>
+        </ion-item>
+      </ion-list>
+ </ion-content>

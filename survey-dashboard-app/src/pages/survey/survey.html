@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Survey</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+ 
+  <!-- This card contains the question details i.e. question description and question options. -->
+
+  <ion-card>
+    <ion-card-header class = "cardheader">
+       <b> Question {{quesno+1}} </b>
+    </ion-card-header>
+    <hr>
+    <ion-card-content>
+      {{questions[quesno].payload.val().question}}
+        <!-- {{data[0].question[quesno].quesdescription}} -->
+        <ion-list *ngFor = "let optioniterator of questions[quesno].payload.val().options">
+          <ion-item>
+            <ion-icon ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon> &nbsp; {{optioniterator}}
+          </ion-item>
+        </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="questions[quesno].payload.val().type != 'selectTime' && questions[quesno].payload.val().type != 'selectDate'">
+
+
+ <!-- Pie Plot code of chart js. -->
+<ion-card *ngIf = "plot =='pie'">
+    <ion-card-header class = "cardheader">
+       <b> Pie Plot </b>
+    </ion-card-header>
+    <hr>
+    <div *ngIf = "flag == true" style="display: block" class = "plotcss">
+        <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+</ion-card>
+
+ <!-- Polar Plot code of chart js. -->
+
+<ion-card *ngIf = "plot =='polar'">
+    <ion-card-header class = "cardheader">
+        <b> Polar Plot </b>
+     </ion-card-header>
+     <hr>
+    <div *ngIf = "flag == true" style="display: block" class = "plotcss">
+        <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [legend]="polarAreaLegend"
+                [chartType]="polarAreaChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+</ion-card>
+
+<!-- Donut Plot code of chart js. -->
+<ion-card *ngIf = "plot =='donut'">
+    <ion-card-header class = "cardheader">
+        <b> Donut Plot </b>
+     </ion-card-header>
+     <hr>
+<div *ngIf = "flag == true" style="display: block" class = "plotcss">
+    <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+</ion-card>
+
+
+<ion-card *ngIf = "plot =='bar'" >
+    <ion-card-header class = "cardheader">
+        <b> Bar Plot </b>
+     </ion-card-header>
+     <hr>
+    <div *ngIf = "flag == true" style="display: block" class = "plotcss">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="pieChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+</ion-card>
+
+</div>
+
+
+<div *ngIf="questions[quesno].payload.val().type == 'selectTime' || questions[quesno].payload.val().type == 'selectDate'">
+  <p style="text-align: center; padding-top: 50%; font-size: 20px">
+    Plot is not possible for this kind of question.
+  </p>
+</div>
+
+
+<div *ngIf="questions[quesno].payload.val().type != 'selectTime' && questions[quesno].payload.val().type != 'selectDate'">
+
+ <!-- This is horizontal scroll for the links of differnt plots -->
+    <ion-scroll scrollX="true" direction="x" style="margin-right: 9px;" >
+    <ion-card class = "plotcard" (click) = "viewpie()">
+      <ion-card-header>
+        <img src = "assets/imgs/PiePlot.PNG" height="70px" width="50px" class = "imgb">
+      </ion-card-header>
+      <ion-card-content class = "d">
+        <b> Pie </b>
+        </ion-card-content>
+    </ion-card >
+
+
+    <ion-card class = "plotcard" (click) = "viewpolar()">
+      <ion-card-header>
+        <img src = "assets/imgs/PolarPlot.PNG" height="70px" width="50px" class = "imgb">
+      </ion-card-header>
+      <ion-card-content class = "d">
+        <b> Polar </b>
+        </ion-card-content>
+    </ion-card>
+
+
+    <ion-card class = "plotcard" (click) = "viewdonut()">
+      <ion-card-header>
+        <img src = "assets/imgs/DonutPlot.PNG" height="70px" width="50px" class = "imgb">
+      </ion-card-header>
+      <ion-card-content class = "d">
+          <b> Doughnut </b>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card class = "plotcard" (click) = "viewbar()">
+      <ion-card-header>
+        <img src = "assets/imgs/BarPlot.PNG" height="70px" width="50px" class = "imgb">
+      </ion-card-header>
+      <ion-card-content class = "d">
+          <b> Bar </b>
+      </ion-card-content>
+    </ion-card>
+      </ion-scroll>
+
+    </div>
+</ion-content>
+
+
+
+
+<!-- Footer code with question number and previous and next button  -->
+<ion-footer>
+    <ion-toolbar>
+          <ion-buttons left>
+          <button  ion-button
+          [ngClass]="{'visibilityNone': quesno <= 0}" (click) = "openprevious(quesno-1)"> 
+              <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon> &nbsp; Prev
+          </button>
+          </ion-buttons>
+          <ion-title class = "toolhead">
+           Question {{quesno+1}}
+          </ion-title>
+           <ion-buttons end>
+          <button ion-button
+          [ngClass]="{'visibilityNone': quesno >= (questions.length-1)}" class ="butonnext"  (click) = "opennext(quesno+1)"> 
+              Next &nbsp; <ion-icon ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon> 
+          </button>
+          </ion-buttons>
+        </ion-toolbar>
+  </ion-footer>

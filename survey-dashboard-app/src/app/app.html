@@ -1,0 +1,37 @@
+<ion-menu [content]="content" id = "myMenu">
+    <ion-header>
+    </ion-header>
+  
+    <ion-content>
+        <ion-list>
+            <div class="image1">
+                    <img class="profilePic" src="{{databasepro.profilePicUrl}}">
+               <h1 class="nameText" style="color: white">ADMIN PANEL</h1>
+                  
+                  </div>
+        <button class = "button button-icon icon ion-navicon" class="button1" style="border-bottom: none" menuClose ion-item (click) = "opensurveylist()">
+            <ion-icon  class = "a" ios="ios-filing" md="md-filing" item-left></ion-icon>
+              Surveys
+        </button>
+        <button class = "button button-icon icon ion-navicon" class="button1" style="border-bottom: none" menuClose ion-item (click) = "openprofile()">
+          <ion-icon class="a" ios="ios-contact" md="md-contact" item-left></ion-icon>
+              My Profile   
+        </button>
+        <button class = "button button-icon icon ion-navicon" class="button1" style="border-bottom: none" menuClose ion-item (click) = "openabout()">
+            <ion-icon class = "a" name="clipboard" item-left></ion-icon>
+                About   
+        </button>
+        <button class = "button button-icon icon ion-navicon" class="button1" style="border-bottom: none" menuClose ion-item (click) = "logout()">
+            <ion-icon class="a" name= "md-log-out" item-left></ion-icon>
+              Logout
+        </button>
+        <button class = "button button-icon icon ion-navicon" class="button1" style="border-bottom: none" menuClose ion-item (click) = "exitApp()">
+            <ion-icon class="a" name= "md-exit" item-left></ion-icon>
+              Exit
+        </button>
+      </ion-list>
+      </ion-content>
+  </ion-menu>
+  
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Raw Data</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-scroll scrollX = "true" scrollY = "true" style = "width: 100vw; height : 100%; margin-right: 40px !important ; ">
+  <ion-grid>
+    <ion-row nowrap class="header">
+      <ion-col nowrap col-3> Responders </ion-col>
+      <ion-col nowrap col-3> E-mail </ion-col>
+      <ion-col *ngFor = "let k of ques; let a =index" nowrap col-3 class="header">
+        {{k.payload.val().question}}
+      </ion-col>
+      <ion-col nowrap col-3>
+        Feedback
+      </ion-col>
+    </ion-row >
+    <ion-row *ngFor = "let c of res; let d = index;" nowrap>
+     <ion-col style="background-color: lightgrey;  color: white " nowrap col-3 > {{names[d]}} </ion-col>
+      <ion-col nowrap col-3> {{email[d]}} </ion-col>
+      <ion-col *ngFor = "let k of res[d].payload.val(); let id = index;" nowrap col-3>
+        {{k}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-scroll>
+</ion-content>

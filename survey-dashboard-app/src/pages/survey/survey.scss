@@ -1,0 +1,77 @@
+/**
+ * Survey Surfer (https://www.ennapd.com/surveysurferadminpanel)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source tree.
+ */
+ 
+page-survey {
+.buttonnext{
+    float: right; 
+    text-align:right;
+}
+.toolhead{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+.plotcss{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+.scroll-zoom-wrapper {
+    white-space: nowrap;
+}
+.toolbar-background {
+    // background-image: url('../../assets/imgs/bg.png')!important;
+    background: linear-gradient(to right, rgb(46, 170, 255) , rgb(54, 198, 240)) !important;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.cardheader
+{
+    padding-right: 10px;
+    padding-top: 13px;
+    padding-bottom: 7px;
+}
+.plotcard {
+    width: 100px !important;
+    display: inline-block;
+    border-radius: 4%;
+    margin-right: -5px;
+}
+ion-scroll {
+    min-height: 160px; 
+    height: auto;
+        .scroll-content {
+        padding: 0px !important;
+    }    
+}
+.d{
+    // padding-left: 5px;
+    text-align: center;
+}
+.scroll-content{
+    background: rgb(248, 248, 248);
+}
+
+.imgb{
+    border-radius: 10px;
+    box-shadow: 0 0 1px grey;
+    align-content: center;
+}
+
+.visibilityNone{
+    visibility: hidden;
+}
+.visibilityVisible{
+    visibility: visible;
+}
+}

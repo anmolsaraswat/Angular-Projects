@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Full Report</ion-title>
+    <ion-buttons end>
+    <button ion-button (click) = "openrawdatapage()"> Raw Data </button>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor ="let questioniterator of ques; let questionindex = index" (click) = "openpagec(questionindex)" text-wrap>
+      <h2> <b>Question {{questionindex+1}}</b></h2>
+      <p> {{questioniterator.payload.val().question}} </p>
+    </ion-item>
+  </ion-list>
+</ion-content>

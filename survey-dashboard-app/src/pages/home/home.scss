@@ -1,0 +1,100 @@
+/**
+ * Survey Surfer (https://www.ennapd.com/surveysurferadminpanel)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source tree.
+ */
+ 
+page-home {
+    .back-button-md,
+    .back-button-ios {
+      color: white;}
+      
+.toolbar-background {
+    // background-image: url('../../assets/imgs/bg.png')!important;
+    background: linear-gradient(to right, rgb(46, 170, 255) , rgb(54, 198, 240)) !important;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.imageborder{
+    border-radius: 10px;
+    box-shadow: 0 0 1px grey;
+}
+
+
+.profilePic {
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px grey;
+    border-radius: 80px;
+  
+  
+    .nameText {
+      margin-top: 10px;
+  
+    }}
+
+    .image {
+        position: relative;
+        background: linear-gradient(to right, rgb(46, 170, 255) , rgb(54, 198, 240));
+        text-align: center;
+        padding-bottom: 15px;
+      }
+      .button1 {
+        background-color: Transparent;
+        color: black;
+        border-bottom: 0%;
+      }
+      
+.a {
+    padding: 3px;
+    margin-right: -6px !important ;
+  }
+
+  .b {
+    text-align: center;
+    color: coral;
+ }
+ 
+ .text-block {
+   position: absolute;
+   bottom: 15px;
+   right: 0px;
+   color: white;
+   width: 100%;
+   text-align: center;
+   background: rgba(7, 0, 0, 0.692);
+ }
+ .toolbar-title.toolbar-title-md, 
+ .toolbar-title.toolbar-title-ios, 
+ .toolbar-title.toolbar-title-wp { color: white }
+      
+ modal-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  [padding] h1:first-child, [padding] h2:first-child, [padding] h3:first-child, [padding] h4:first-child, [padding] h5:first-child, [padding] h6:first-child {
+    margin-top: 0rem;
+}
+
+  @media not all and (min-height: 600px) and (min-width: 768px) {
+    ion-modal ion-backdrop {
+      visibility: hidden;
+    }
+  }
+  
+  @media only screen and (min-height: 0px) and (min-width: 0px) {
+    .modal-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
