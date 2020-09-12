@@ -1,0 +1,8 @@
+<button (click) = "onClickofButton()">Display Details</button>
+
+<p 
+    *ngIf = "toggleDisplay" 
+    [ngStyle] = "{'background-color': getColor()}" 
+    [ngClass] ="{a:Array.length > 5}" >Information: Passoword-Tuna</p>  
+
+<p>{{ count }}</p>
