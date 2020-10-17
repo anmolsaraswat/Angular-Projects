@@ -1,0 +1,5 @@
+<app-game-control (eventTrigger)="ontriggerEvent($event)"></app-game-control>
+<div *ngFor = "let event of events; let i=index">
+  <app-odd *ngIf = "(i%2)!= 0" [oddNumber] = "event"></app-odd>
+    <app-even *ngIf = "(i%2) == 0" [evenNumber] = "event"></app-even>
+</div>
